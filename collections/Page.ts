@@ -4,6 +4,7 @@ import { Image, Type as ImageType } from '../blocks/Image';
 import { CallToAction, Type as CallToActionType } from '../blocks/CallToAction';
 import { Content, Type as ContentType } from '../blocks/Content';
 import slug from '../fields/slug';
+import meta from '../fields/meta';
 
 export type Layout = CallToActionType | ContentType | ImageType
 
@@ -35,12 +36,6 @@ export const Page: CollectionConfig = {
       required: true,
     },
     {
-      name: 'image',
-      label: 'Featured Image',
-      type: 'upload',
-      relationTo: 'media',
-    },
-    {
       name: 'layout',
       label: 'Page Layout',
       type: 'blocks',
@@ -51,28 +46,7 @@ export const Page: CollectionConfig = {
         Image,
       ],
     },
-    {
-      name: 'meta',
-      label: 'Page Meta',
-      type: 'group',
-      fields: [
-        {
-          name: 'title',
-          label: 'Title',
-          type: 'text',
-        },
-        {
-          name: 'description',
-          label: 'Description',
-          type: 'textarea',
-        },
-        {
-          name: 'keywords',
-          label: 'Keywords',
-          type: 'text',
-        },
-      ],
-    },
+    meta,
     slug,
   ],
 };
