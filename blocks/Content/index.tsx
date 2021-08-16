@@ -17,8 +17,40 @@ export const Content: Block = {
   },
   fields: [
     {
-      name: 'content',
-      type: 'richText',
+      name: 'columns',
+      type: 'array',
+      minRows: 1,
+      fields: [
+        {
+          name: 'widht',
+          label: 'Column Widht',
+          type: 'select',
+          defaultValue: 'full',
+          options: [
+            {
+              label: 'One Third',
+              value: 'oneThird',
+            },
+            {
+              label: 'Half',
+              value: 'half',
+            },
+            {
+              label: 'Two Thirds',
+              value: 'twoThirds',
+            },
+            {
+              label: 'Full Width',
+              value: 'full',
+            },
+          ],
+        },
+        {
+          name: 'content',
+          type: 'richText',
+          required: true,
+        },
+      ],
     },
   ],
 };
